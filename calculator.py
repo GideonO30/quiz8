@@ -1,13 +1,16 @@
-def add(a, b):
-    return a + b
+def add(x, y):
+    return x + y
 
-def subtract(a, b):
-    return a - b
 
-def multiply(a, b):
-    return a * b
+def subtract(x, y):
+    return x - y
 
-def divide(a, b):
-    if b == 0:
-        raise ValueError("Cannot divide by zero")
-    return a / b
+
+def multiply(x, y):
+    return x * y
+
+
+def divide(x, y):
+    if y == 0:
+        raise ValueError("Cannot divide by zero!")
+    return x / y
