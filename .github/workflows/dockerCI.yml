@@ -1,21 +1,21 @@
-name: Docker CI
+name: Python CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
 jobs:
-  docker-test:
+  test-in-container:
     runs-on: ubuntu-latest
 
+    container:
+      image: gokai30/quiz8:v0.1
+
     steps:
-      - name: Checkout code
+      - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Build Docker image
-        run: docker build -t calculator-app .
-
-      - name: Run tests inside Docker container
-        run: docker run calculator-app
+      - name: Run tests in container
+        run: pytest
