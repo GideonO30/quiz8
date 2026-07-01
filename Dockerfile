@@ -6,4 +6,4 @@ COPY . /app
 
 RUN pip install -r req/requirements.txt
 
-ENTRYPOINT ["tail", "-f", "/dev/null"]
+CMD ["pytest"]

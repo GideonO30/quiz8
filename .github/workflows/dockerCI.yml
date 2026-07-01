@@ -7,15 +7,15 @@ on:
     branches: [ main ]
 
 jobs:
-  test-in-container:
+  docker-test:
     runs-on: ubuntu-latest
-
-    container:
-      image: gokai30/quiz8:v0.1
 
     steps:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Run tests in container
-        run: pytest
+      - name: Build Docker image
+        run: docker build -t gokai30/quiz8:v0.1 .
+
+      - name: Run tests inside Docker
+        run: docker run --rm gokai30/quiz8:v0.1 pytest
